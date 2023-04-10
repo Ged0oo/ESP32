@@ -9,7 +9,7 @@
 BluetoothSerial SerialBT;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);s
   /* If no name is given, default 'ESP32' is applied */
   /* If you want to give your own name to ESP32 Bluetooth device, then */
   /* specify the name as an argument SerialBT.begin("myESP32Bluetooth*/
