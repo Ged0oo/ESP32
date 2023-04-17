@@ -3,16 +3,13 @@
 #include <WiFi.h>
 
 //Define variables to store incoming readings
-int receive_rnd_val_1;
-int receive_rnd_val_2;
-
+char receive_rnd_val_1;
 
 
 //Structure example to receive data and Must match the sender structure
 typedef struct struct_message 
 {
-    int rnd_1;
-    int rnd_2;
+    char b;
 } struct_message;
 //Create a struct_message to receive data.
 struct_message receive_Data; 
@@ -24,22 +21,16 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len)
 {
   memcpy(&receive_Data, incomingData, sizeof(receive_Data));
   Serial.println();
-  Serial.println("<<<<< Receive Data:");
-  Serial.print("Bytes received: ");
-  Serial.println(len);
-  receive_rnd_val_1 = receive_Data.rnd_1;
-  receive_rnd_val_2 = receive_Data.rnd_2;
-  Serial.println("Receive Data: ");
+  receive_rnd_val_1 = receive_Data.b;
+  Serial.println("Receive Data:        ");
   Serial.println(receive_rnd_val_1);
-  Serial.println(receive_rnd_val_2);
-  Serial.println("<<<<<");
 }
 
 
 
 void setup() 
 {
-  Serial.begin(115200);
+  Serial.begin(9600);
   //Set device as a Wi-Fi Station
   WiFi.mode(WIFI_STA); 
 
