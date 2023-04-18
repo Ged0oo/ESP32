@@ -20,10 +20,10 @@ struct_message receive_Data;
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) 
 {
   memcpy(&receive_Data, incomingData, sizeof(receive_Data));
-  Serial.println();
+  //Serial.println();
   receive_rnd_val_1 = receive_Data.b;
-  Serial.println("Receive Data:        ");
-  Serial.println(receive_rnd_val_1);
+  //Serial.println("Receive Data:        ");
+  //Serial.println(receive_rnd_val_1);
 }
 
 
@@ -50,9 +50,7 @@ void setup()
 void loop() 
 {
   
-  Serial.write(receive_Data.b);
+  Serial.write(receive_rnd_val_1);
   Serial.println("UART REC : ");
-  Serial.println(receive_Data.b);
-  delay(500);
-  
+  Serial.println(receive_rnd_val_1);
 }
