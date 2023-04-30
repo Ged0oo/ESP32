@@ -23,6 +23,6 @@ void setup()
 
 void loop() 
 {
-  Serial.print(rec_val);
+  Serial.write(rec_val);
   Serial.println("\nUART REC : ");
 }
